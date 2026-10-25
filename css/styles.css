@@ -3,14 +3,14 @@
             --muted-ink: #475569;
             --leaf: #2563eb;
             --coral: #d97706;
-            --bg: #f0f4f8;
+            --bg: #f3f8ff;
             --panel: #fff;
             --text: #0f172a;
             --muted: #475569;
-            --line: #e2e8f0;
-            --blue: #2563eb;
-            --teal: #059669;
-            --red: #dc2626;
+            --line: #dbeafe;
+            --blue: #1877f2;
+            --teal: #0f9f91;
+            --red: #e65f61;
             --purple: #7c3aed;
             --shadow: 0 8px 28px rgba(24, 39, 75, .07)
         }
@@ -467,41 +467,45 @@
             .product-preview,.feature-item,.preview-bars i { animation:none; }
         }
 
-        .dashboard-shell { display:grid; grid-template-columns:248px minmax(0,1fr); min-height:100vh; background:#f0f4f8; }
-        .dashboard-sidebar { position:sticky; top:0; height:100vh; display:flex; flex-direction:column; padding:23px 14px 16px; background:#fff; border-right:1px solid #e2e8f0; }
+        .dashboard-shell { display:grid; grid-template-columns:248px minmax(0,1fr); min-height:100vh; background:#f3f8ff; }
+        .dashboard-sidebar { position:sticky; top:0; height:100vh; display:flex; flex-direction:column; padding:23px 14px 16px; background:#fff; border-right:1px solid #dbeafe; }
         .dashboard-brand { display:flex; align-items:center; gap:11px; padding:0 8px 25px; color:#0f172a; text-decoration:none; }
-        .dashboard-mark { width:40px; height:40px; display:grid; place-items:center; border-radius:6px; background:#2563eb; color:white; font-size:12px; font-weight:800; }
+        .dashboard-mark { width:40px; height:40px; display:grid; place-items:center; border-radius:7px; background:#1877f2; color:white; font-size:12px; font-weight:800; }
         .dashboard-brand strong,.dashboard-brand small { display:block; }
         .dashboard-brand strong { font-size:14px; }
         .dashboard-brand small { margin-top:3px; color:#64748b; font-size:10px; }
         .sidebar-label { margin:5px 10px 10px; color:#94a3b8; font-size:9px; font-weight:800; letter-spacing:1px; }
         .dashboard-nav { display:grid; gap:4px; }
         .dashboard-nav a { display:flex; align-items:center; gap:11px; min-height:42px; padding:7px 10px; border-radius:5px; color:#475569; font-size:12px; font-weight:700; text-decoration:none; transition:background .15s,color .15s; }
-        .dashboard-nav a:hover { background:#f8fafc; color:#1d4ed8; }
-        .dashboard-nav a.active { background:#dbeafe; color:#1d4ed8; }
-        .dashboard-nav a span { width:25px; height:25px; display:grid; place-items:center; border:1px solid #e2e8f0; border-radius:4px; color:#64748b; font-size:9px; font-weight:800; }
-        .dashboard-nav a.active span { border-color:#bfdbfe; color:#2563eb; background:#eff6ff; }
-        .sidebar-note { display:grid; grid-template-columns:30px 1fr; column-gap:9px; align-items:center; margin-top:auto; padding:12px 10px; border:1px solid #e2e8f0; border-radius:6px; }
-        .sidebar-note-mark { grid-row:span 2; width:28px; height:28px; display:grid; place-items:center; border-radius:4px; background:#eff6ff; color:#2563eb; font-size:9px; font-weight:900; }
+        .dashboard-nav a:hover { background:#eff6ff; color:#1769dc; }
+        .dashboard-nav a.active { background:linear-gradient(110deg,#1769ed,#3b89f6); color:#fff; box-shadow:0 4px 12px #1877f233; }
+        .dashboard-nav a span { width:25px; height:25px; display:grid; place-items:center; border:1px solid #dbeafe; border-radius:5px; color:#64748b; font-size:9px; font-weight:800; }
+        .dashboard-nav a.active span { border-color:#ffffff66; color:#fff; background:#ffffff20; }
+        .sidebar-note { display:grid; grid-template-columns:30px 1fr; column-gap:9px; align-items:center; margin-top:auto; padding:12px 10px; border:1px solid #dbeafe; border-radius:7px; background:#f4f8ff; }
+        .sidebar-note-mark { grid-row:span 2; width:28px; height:28px; display:grid; place-items:center; border-radius:5px; background:#e8f1ff; color:#1877f2; font-size:9px; font-weight:900; }
         .sidebar-note strong { font-size:10px; }
         .sidebar-note small { margin-top:3px; color:#64748b; font-size:9px; }
         .dashboard-content { min-width:0; }
-        #appShell .dashboard-header { position:sticky; top:0; z-index:5; min-height:92px; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; background:#fff; color:#0f172a; border-bottom:1px solid #e2e8f0; box-shadow:none; }
-        .dashboard-kicker { margin:0 0 6px; color:#2563eb; font-size:9px; font-weight:800; letter-spacing:1px; }
+        #appShell .dashboard-header { position:sticky; top:0; z-index:5; min-height:92px; padding:18px 32px; display:flex; align-items:center; justify-content:space-between; gap:20px; background:#fff; color:#0f172a; border-bottom:1px solid #dbeafe; box-shadow:none; }
+        .dashboard-kicker { margin:0 0 6px; color:#1877f2; font-size:9px; font-weight:800; letter-spacing:1px; }
         #appShell .dashboard-header h1 { margin:0; color:#0f172a; font-size:22px; line-height:1.25; }
         #appShell .dashboard-header .subtitle { margin-top:5px; color:#64748b; font-size:11px; }
         #appShell .dashboard-header .header-actions { width:auto; gap:8px; }
-        #appShell .dashboard-header .secondary { border:1px solid #cbd5e1; background:#fff; color:#334155; }
-        #appShell .dashboard-header .secondary:hover { background:#f8fafc; border-color:#94a3b8; }
-        #appShell .dashboard-header .primary { background:#2563eb; color:#fff; }
+        #appShell .dashboard-header .secondary { border:1px solid #c9defb; background:#fff; color:#24517f; }
+        #appShell .dashboard-header .secondary:hover { background:#eff6ff; border-color:#91baf0; }
+        #appShell .dashboard-header .primary { background:#1877f2; color:#fff; }
+        #appShell .dashboard-header .primary:hover { background:#1166d7; }
         #appShell main.dashboard-main { width:100%; max-width:1500px; margin:0 auto; padding:25px 32px 38px; }
-        #appShell .toolbar { margin-bottom:20px; padding-bottom:15px; border-bottom:1px solid #e2e8f0; }
+        #appShell .toolbar { margin-bottom:20px; padding-bottom:15px; border-bottom:1px solid #dbeafe; }
         #appShell .status { font-size:11px; }
-        #appShell .status strong { color:#2563eb; }
-        #appShell .upload-label { padding:9px 13px; border:1px solid #bfdbfe; border-radius:5px; background:#eff6ff; color:#1d4ed8; font-size:11px; }
-        #appShell .card,#appShell .panel { border:1px solid #e2e8f0; border-radius:7px; box-shadow:0 2px 8px #0f172a08; }
+        #appShell .status strong { color:#1877f2; }
+        #appShell .upload-label { padding:9px 13px; border:1px solid #c6dcfb; border-radius:6px; background:#eff6ff; color:#1769dc; font-size:11px; }
+        #appShell .card,#appShell .panel { border:1px solid #dce9fb; border-radius:9px; box-shadow:0 3px 12px #1d4f8a0b; }
         #appShell .metric { min-height:130px; padding:18px; }
-        #appShell .metric:after { width:4px; height:auto; top:0; right:auto; bottom:0; left:0; border-radius:0; }
+        #appShell .metric:after { width:4px; height:auto; top:0; right:auto; bottom:0; left:0; border-radius:0; background:#1877f2; }
+        #appShell .metric:nth-child(2):after { background:#20a7c9; }
+        #appShell .metric:nth-child(3):after { background:#ed716b; }
+        #appShell .metric:nth-child(4):after { background:#28a58b; }
         #appShell .metric .label { color:#64748b; font-size:10px; font-weight:800; letter-spacing:.4px; }
         #appShell .metric .value { color:#0f172a; font-size:27px; letter-spacing:0; }
         #appShell .metric .foot { color:#64748b; font-size:10px; }
@@ -511,14 +515,14 @@
         #appShell .grid { gap:14px; }
         #appShell .chart-wrap { height:250px; }
         #appShell .chart-wrap canvas { max-width:100%; }
-        #appShell th { background:#f8fafc; color:#64748b; font-size:10px; }
+        #appShell th { background:#f2f7ff; color:#526b89; font-size:10px; }
         #appShell td { color:#334155; font-size:11px; }
-        #appShell .insight { border:1px solid #e2e8f0; border-radius:5px; background:#f8fafc; }
-        #appShell .add-btn { border-radius:5px; background:#2563eb; }
+        #appShell .insight { border:1px solid #dce9fb; border-radius:7px; background:#f5f9ff; }
+        #appShell .add-btn { border-radius:6px; background:#1877f2; }
         #appShell .clear-btn { border-radius:5px; background:#f1f5f9; color:#334155; }
         #appShell .delete-btn { border-radius:4px; }
-        #appShell .dashboard-footer { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:15px 32px 20px; border-top:1px solid #e2e8f0; color:#64748b; font-size:10px; text-align:left; }
-        #appShell .logout-btn { margin:0; padding:8px 11px; border:1px solid #cbd5e1; border-radius:5px; background:#fff; color:#334155; font-size:10px; }
+        #appShell .dashboard-footer { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:15px 32px 20px; border-top:1px solid #dbeafe; color:#647b98; font-size:10px; text-align:left; }
+        #appShell .logout-btn { margin:0; padding:8px 11px; border:1px solid #c9defb; border-radius:6px; background:#fff; color:#334155; font-size:10px; }
         #appShell section[id],#appShell #dashboardTop { scroll-margin-top:108px; }
         @media(max-width:1000px) {
             .dashboard-shell { grid-template-columns:minmax(0,1fr); }

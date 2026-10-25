@@ -210,7 +210,7 @@ const sample = [
                     order_id: order.order_id,
                     name: "Next-Gen Analyst",
                     description: "₹1 Razorpay test transaction",
-                    theme: {color: "#137c68"},
+                    theme: {color: "#1877f2"},
                     handler: async response => {
                         try {
                             const verificationResponse = await fetch("/api/verify-payment", {
@@ -327,13 +327,13 @@ const sample = [
             $("income").textContent = incomes.length ? "₹" + money(avg(incomes)) : "N/A";
             $("age").textContent = ages.length ? avg(ages).toFixed(1) : "N/A";
             const attrGroups = groupBy(rows, attrLabel);
-            makeChart("attritionChart", "doughnut", ["Stayed", "Left"], [{data: [(attrGroups.Stayed || []).length, (attrGroups.Left || []).length], backgroundColor: ["#137c68", "#c8564c"], borderWidth: 0}]);
+            makeChart("attritionChart", "doughnut", ["Stayed", "Left"], [{data: [(attrGroups.Stayed || []).length, (attrGroups.Left || []).length], backgroundColor: ["#1877f2", "#ed716b"], borderWidth: 0}]);
             const deptNames = Object.keys(depts).sort((a, b) => depts[b].length - depts[a].length);
-            makeChart("departmentChart", "bar", deptNames, [{label: "Employees", data: deptNames.map(d => depts[d].length), backgroundColor: "#137c68", borderRadius: 6}], {plugins: {legend: {display: false}}});
-            makeChart("deptAttritionChart", "bar", deptNames, [{label: "Left", data: deptNames.map(d => depts[d].filter(r => yes(get(r, ["Attrition"]))).length), backgroundColor: "#df765f", borderRadius: 6}], {plugins: {legend: {display: false}}});
+            makeChart("departmentChart", "bar", deptNames, [{label: "Employees", data: deptNames.map(d => depts[d].length), backgroundColor: "#1877f2", borderRadius: 6}], {plugins: {legend: {display: false}}});
+            makeChart("deptAttritionChart", "bar", deptNames, [{label: "Left", data: deptNames.map(d => depts[d].filter(r => yes(get(r, ["Attrition"]))).length), backgroundColor: "#ed716b", borderRadius: 6}], {plugins: {legend: {display: false}}});
             const otGroups = groupBy(rows, r => yes(get(r, ["OverTime"])) ? "Overtime: Yes" : String(get(r, ["OverTime"]) ?? "Unknown").toLowerCase() === "no" ? "Overtime: No" : "Overtime: Unknown");
             const otLabels = Object.keys(otGroups);
-            makeChart("overtimeChart", "bar", otLabels, [{label: "Left", data: otLabels.map(k => otGroups[k].filter(r => yes(get(r, ["Attrition"]))).length), backgroundColor: "#df765f", borderRadius: 6}, {label: "Stayed", data: otLabels.map(k => otGroups[k].filter(r => !yes(get(r, ["Attrition"]))).length), backgroundColor: "#13846f", borderRadius: 6}], {scales: {x: {stacked: true}, y: {stacked: true, beginAtZero: true, ticks: {precision: 0}}}});
+            makeChart("overtimeChart", "bar", otLabels, [{label: "Left", data: otLabels.map(k => otGroups[k].filter(r => yes(get(r, ["Attrition"]))).length), backgroundColor: "#ed716b", borderRadius: 6}, {label: "Stayed", data: otLabels.map(k => otGroups[k].filter(r => !yes(get(r, ["Attrition"]))).length), backgroundColor: "#1877f2", borderRadius: 6}], {scales: {x: {stacked: true}, y: {stacked: true, beginAtZero: true, ticks: {precision: 0}}}});
             $("deptTable").innerHTML = deptNames.map(d => {const group = depts[d], left = group.filter(r => yes(get(r, ["Attrition"]))).length, inc = group.map(r => num(get(r, ["MonthlyIncome", "Monthly Income", "Income"]))).filter(v => v !== null); return `<tr><td>${escapeHtml(d)}</td><td>${group.length}</td><td><span class="pill ${left ? "yes" : "no"}">${left}</span></td><td>${(left / group.length * 100).toFixed(1)}%</td><td>${inc.length ? "₹" + money(avg(inc)) : "N/A"}</td></tr>`}).join("");
             $("employeeTable").innerHTML = rows.map((r, i) => `<tr><td>${i + 1}</td><td>${escapeHtml(get(r, ["Age"]) ?? "")}</td><td>${escapeHtml(get(r, ["Department"]) ?? "")}</td><td>${escapeHtml(get(r, ["MonthlyIncome", "Monthly Income", "Income"]) ?? "")}</td><td><span class="pill ${yes(get(r, ["Attrition"])) ? "yes" : "no"}">${yes(get(r, ["Attrition"])) ? "Yes" : "No"}</span></td><td>${escapeHtml(get(r, ["OverTime"]) ?? "")}</td><td>${escapeHtml(get(r, ["JobRole"]) ?? "")}</td><td><button type="button" class="delete-btn" data-delete-index="${i}">Delete</button></td></tr>`).join("");
             const highest = deptNames.slice().sort((a, b) => (depts[b].filter(r => yes(get(r, ["Attrition"]))).length / depts[b].length) - (depts[a].filter(r => yes(get(r, ["Attrition"]))).length / depts[a].length))[0];
