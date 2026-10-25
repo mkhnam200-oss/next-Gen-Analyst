@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next-Gen Analyst | HR Employee Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.1/dist/umd/supabase.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+        <section id="productPage" class="product-page">
+            <header class="site-nav">
+                <a class="site-brand" href="#top" aria-label="Next-Gen Analyst home"><span class="site-mark">NG</span><span><strong>Next-Gen Analyst</strong><small>Employee Analytics</small></span></a>
+                <nav class="nav-actions" aria-label="Main navigation">
+                    <a href="#overview" class="nav-overview">Overview</a>
+                    <a href="#features" class="nav-overview">Features</a>
+                    <a href="#pricing" class="nav-overview">Pricing</a>
+                    <a href="#faq" class="nav-overview">FAQ</a>
+                    <button type="button" id="signInBtn" class="nav-signin">Sign in</button>
+                    <button type="button" id="navTrialBtn" class="nav-trial">Try trial</button>
+                </nav>
+            </header>
+            <main class="product-main" id="top">
+                <section class="product-hero">
+                    <div class="hero-copy">
+                        <p class="eyebrow"><span></span> WORKFORCE ANALYTICS, MADE PRACTICAL</p>
+                        <h1>See the people story <em>behind the numbers.</em></h1>
+                        <p class="hero-description">Explore employee trends, attrition, income and department performance in one clear dashboard. Bring your own CSV or start with a guided trial.</p>
+                        <div class="hero-actions">
+                            <button type="button" id="heroTrialBtn" class="button-primary">Try the dashboard</button>
+                            <a class="button-secondary hero-pricing-link" href="#pricing">Explore pricing <span aria-hidden="true">↓</span></a>
+                        </div>
+                        <div class="hero-facts"><span><strong>01</strong> Upload or enter records</span><span><strong>02</strong> Read workforce patterns</span><span><strong>03</strong> Export your findings</span></div>
+                    </div>
+                    <div class="product-preview" aria-label="Preview of the employee analytics dashboard">
+                        <div class="preview-top"><div><span class="preview-kicker">NEXT-GEN ANALYST / OVERVIEW</span><h2>Workforce snapshot</h2></div><span class="preview-live"><i></i> LIVE VIEW</span></div>
+                        <div class="preview-metrics"><div><span>EMPLOYEES</span><strong>20</strong><small>Sample records</small></div><div><span>ATTRITION</span><strong>30%</strong><small class="preview-down">6 records marked left</small></div><div><span>AVG. INCOME</span><strong>₹4,449</strong><small>Monthly average</small></div></div>
+                        <div class="preview-chart"><div class="preview-chart-heading"><div><strong>Headcount by department</strong><small>Current workforce distribution</small></div><span>THIS YEAR</span></div><div class="preview-bars" aria-hidden="true"><i style="height:54%"></i><i style="height:77%"></i><i style="height:43%"></i><i style="height:91%"></i><i style="height:64%"></i><i style="height:70%"></i><i style="height:38%"></i><i style="height:83%"></i><i style="height:59%"></i><i style="height:72%"></i><i style="height:48%"></i><i style="height:95%"></i></div><div class="preview-axis"><span>Sales</span><span>People</span><span>Operations</span><span>Research</span></div></div>
+                        <div class="preview-bottom"><span><i class="legend-dot teal"></i> Staying</span><span><i class="legend-dot coral"></i> Left</span><span class="preview-note">Illustrative preview</span></div>
+                    </div>
+                </section>
+                <section class="product-section" id="overview">
+                    <div class="section-heading"><p class="eyebrow">WHAT'S INSIDE</p><h2>From raw employee data to a clearer picture.</h2><p>Practical tools for exploring your workforce without wrestling with spreadsheets.</p></div>
+                    <div class="feature-grid" id="features">
+                        <article class="feature-item"><span class="feature-number">01</span><h3>Workforce snapshot</h3><p>See employee count, attrition rate, average income, and average age at a glance.</p></article>
+                        <article class="feature-item"><span class="feature-number">02</span><h3>Attrition patterns</h3><p>Compare employees who stayed or left and explore attrition across departments.</p></article>
+                        <article class="feature-item"><span class="feature-number">03</span><h3>Department insights</h3><p>Review headcount, leavers, attrition rates, and average monthly income by department.</p></article>
+                        <article class="feature-item"><span class="feature-number">04</span><h3>Overtime comparison</h3><p>Compare recorded attrition for employees marked with and without overtime.</p></article>
+                        <article class="feature-item"><span class="feature-number">05</span><h3>CSV data workflow</h3><p>Import and export Excel-compatible CSV files, or link a file for auto-save in supported browsers.</p></article>
+                        <article class="feature-item"><span class="feature-number">06</span><h3>Manual employee records</h3><p>Add, review, or remove employee entries and see dashboard totals update immediately.</p></article>
+                    </div>
+                </section>
+                <section class="product-details">
+                    <div class="details-title"><p class="eyebrow">BUILT FOR EXPLORATION</p><h2>A useful first look at your people data.</h2></div>
+                    <div class="details-list"><p><span>01</span> Interactive charts and workforce summary metrics</p><p><span>02</span> Department headcount, attrition and income breakdowns</p><p><span>03</span> Manual record entry, CSV import and export</p><p><span>04</span> Browser storage by default, with optional organization-scoped Supabase storage</p></div>
+                </section>
+                <section class="workflow-section" aria-labelledby="workflowTitle">
+                    <div class="section-heading"><p class="eyebrow">A SIMPLE WORKFLOW</p><h2 id="workflowTitle">Bring data in. Explore it. Take it with you.</h2></div>
+                    <div class="workflow-grid">
+                        <article><span>STEP 01</span><h3>Load your records</h3><p>Upload a CSV, link a spreadsheet file, or enter employees manually.</p></article>
+                        <article><span>STEP 02</span><h3>Explore the trends</h3><p>Use the metrics, charts, department summary, and quick insights to review your data.</p></article>
+                        <article><span>STEP 03</span><h3>Export a copy</h3><p>Download your current records as CSV for use in Excel or another spreadsheet app.</p></article>
+                    </div>
+                </section>
+                <section class="pricing-section" id="pricing">
+                    <div class="section-heading"><p class="eyebrow">SIMPLE, HONEST PRICING</p><h2>Try it free. Ask us about full access.</h2><p>Online checkout is paused. Contact us for a full-access quote before making any payment.</p></div>
+                    <div class="pricing-grid">
+                        <article class="pricing-card">
+                            <p class="plan-label">START EXPLORING</p><h3>Free trial</h3>
+                            <p class="plan-price">₹0 <span>/ free</span></p>
+                            <p class="plan-description">Explore the dashboard with the included sample employee records.</p>
+                            <ul><li>Sample workforce dataset</li><li>All dashboard charts and insights</li><li>Try manual entry and CSV tools</li><li>Changes reset when trial ends</li></ul>
+                            <button type="button" id="pricingTrialBtn" class="button-secondary">Start free trial</button>
+                        </article>
+                        <article class="pricing-card pricing-featured">
+                            <p class="plan-label">WORK WITH YOUR DATA</p><h3>Full access</h3>
+                            <p class="plan-price">Custom <span>/ contact us</span></p>
+                            <p class="plan-description">Tell us about your team and workflow; confirm the price before you commit.</p>
+                            <ul><li>Import your employee CSV</li><li>Use manual employee entry</li><li>Save in this browser, a linked CSV, or configured Supabase database</li><li>Export your records and review every chart</li></ul>
+                            <a class="button-primary pricing-contact" href="https://wa.me/916006082040?text=Hi%2C%20I%27m%20interested%20in%20Next-Gen%20Analyst%20Full%20Access%20pricing." target="_blank" rel="noopener noreferrer">Ask about pricing</a>
+                            <small class="pricing-note">No online payment is collected from this page.</small>
+                        </article>
+                    </div>
+                </section>
+                <section class="faq-section" id="faq">
+                    <div class="section-heading"><p class="eyebrow">GOOD TO KNOW</p><h2>Frequently asked questions</h2></div>
+                    <div class="faq-list">
+                        <details><summary>Where is my employee data stored?</summary><p>By default, data stays in this browser or a CSV file you link. If Supabase is configured, authenticated organization members share an organization-scoped cloud dataset protected by row-level security.</p></details>
+                        <details><summary>Can I open my data in Excel?</summary><p>Yes. Import and export use CSV, which can be opened in Excel and other spreadsheet apps.</p></details>
+                        <details><summary>Does the free trial save my changes?</summary><p>No. Trial mode uses sample records, and edits are temporary. Full access saves data in the current browser or linked CSV.</p></details>
+                        <details><summary>Can I pay online right now?</summary><p>No. Online checkout is paused. Use the pricing enquiry to ask about full access; the page will not charge you.</p></details>
+                        <details><summary>Is this suitable for sensitive HR records?</summary><p>This local browser app is not production-grade security. Avoid storing sensitive or regulated employee information in it.</p></details>
+                    </div>
+                </section>
+                <section class="purchase-band" id="purchase">
+                    <div><p class="eyebrow">READY TO EXPLORE?</p><h2>See your workforce data more clearly.</h2><p>Start with sample records, then contact us when you are ready to discuss full access.</p></div>
+                    <div class="purchase-actions"><button type="button" id="sectionTrialBtn" class="button-primary">Start free trial</button><a class="button-secondary purchase-pricing-link" href="#pricing">View pricing</a></div>
+                </section>
+            </main>
+            <footer class="product-footer"><span>Next-Gen Analyst · HR Employee Analytics</span><span>Local browser app. Not designed to secure sensitive employee information.</span></footer>
+        </section>
+
+        <section id="authScreen" class="auth-screen" hidden>
+      <div class="auth-card">
+                <button type="button" id="backToProductBtn" class="auth-link auth-back">← Back to project</button>
+        <div class="auth-brand"><span class="auth-logo">HR</span><div><h1>HR Analytics</h1><p>Secure dashboard access</p></div></div>
+        <div id="setupPanel" class="auth-panel">
+                    <h2>Create your login</h2><p class="auth-help" id="setupHelp">First-time setup. Create a username, password and recovery code.</p>
+          <form id="setupForm">
+                        <label class="local-auth-field">Username<input id="setupUsername" required minlength="3" autocomplete="username" placeholder="Choose username"></label>
+                        <label class="supabase-auth-field" hidden>Your name<input id="supabaseFullName" autocomplete="name" placeholder="Your name"></label>
+                        <label class="supabase-auth-field" hidden>Organization name<input id="supabaseOrganizationName" autocomplete="organization" placeholder="Company or team"></label>
+                        <label class="supabase-auth-field" hidden>Work email<input id="supabaseSignupEmail" type="email" autocomplete="email" placeholder="you@company.com"></label>
+            <label>Password<input id="setupPassword" type="password" required minlength="6" autocomplete="new-password" placeholder="At least 6 characters"></label>
+            <label>Confirm password<input id="setupConfirm" type="password" required minlength="6" autocomplete="new-password" placeholder="Re-enter password"></label>
+                        <label class="local-auth-field">Recovery code (remember this)<input id="setupRecovery" required minlength="4" autocomplete="off" placeholder="Used if you forget password"></label>
+            <button class="auth-submit" type="submit">Create account</button><p id="setupMessage" class="auth-message" aria-live="polite"></p>
+          </form>
+                    <button type="button" class="auth-link" id="showLoginFromSetup">Already have an account? Sign in</button>
+        </div>
+        <div id="loginPanel" class="auth-panel" hidden>
+          <h2>Welcome back</h2><p class="auth-help">Login to continue to your dashboard.</p>
+          <form id="loginForm">
+                        <label class="local-auth-field">Username<input id="loginUsername" required autocomplete="username" placeholder="Enter username"></label>
+                        <label class="supabase-auth-field" hidden>Work email<input id="supabaseLoginEmail" type="email" autocomplete="email" placeholder="you@company.com"></label>
+            <label>Password<input id="loginPassword" type="password" required autocomplete="current-password" placeholder="Enter password"></label>
+            <button class="auth-submit" type="submit">Login</button><p id="loginMessage" class="auth-message" aria-live="polite"></p>
+          </form>
+          <button type="button" class="auth-link" id="showForgot">Forgot password?</button>
+                    <button type="button" class="auth-link" id="showSetupFromLogin">Create an account</button>
+        </div>
+        <div id="forgotPanel" class="auth-panel" hidden>
+                    <h2>Reset password</h2><p class="auth-help" id="forgotHelp">Enter your username and recovery code set during account creation.</p>
+                    <form id="forgotForm" class="local-auth-field">
+            <label>Username<input id="forgotUsername" required autocomplete="username"></label>
+            <label>Recovery code<input id="forgotRecovery" type="password" required autocomplete="off"></label>
+            <label>New password<input id="forgotNewPassword" type="password" required minlength="6" autocomplete="new-password"></label>
+            <label>Confirm new password<input id="forgotConfirmPassword" type="password" required minlength="6" autocomplete="new-password"></label>
+            <button class="auth-submit" type="submit">Save new password</button><p id="forgotMessage" class="auth-message" aria-live="polite"></p>
+          </form>
+                    <form id="supabaseResetRequestForm" class="supabase-auth-field" hidden>
+                        <label>Work email<input id="supabaseResetEmail" type="email" required autocomplete="email" placeholder="you@company.com"></label>
+                        <button class="auth-submit" type="submit">Send password reset email</button><p id="supabaseResetMessage" class="auth-message" aria-live="polite"></p>
+                    </form>
+                    <form id="supabasePasswordUpdateForm" class="supabase-auth-field" hidden>
+                        <label>New password<input id="supabaseNewPassword" type="password" required minlength="8" autocomplete="new-password"></label>
+                        <label>Confirm new password<input id="supabaseConfirmPassword" type="password" required minlength="8" autocomplete="new-password"></label>
+                        <button class="auth-submit" type="submit">Update password</button><p id="supabaseUpdateMessage" class="auth-message" aria-live="polite"></p>
+                    </form>
+          <button type="button" class="auth-link" id="backToLogin">Back to login</button>
+        </div>
+                <p class="auth-security-note" id="authSecurityNote">Note: This is a local HTML dashboard. Login and data are stored in this browser only; this is not server-grade security and does not sync between devices.</p>
+      </div>
+    </section>
+
+    <div id="appShell" class="dashboard-shell" hidden>
+    <aside class="dashboard-sidebar">
+        <a class="dashboard-brand" href="#dashboardTop"><span class="dashboard-mark">NG</span><span><strong>Next-Gen Analyst</strong><small>Employee Analytics</small></span></a>
+        <p class="sidebar-label">WORKSPACE</p>
+        <nav class="dashboard-nav" id="dashboardNav" aria-label="Dashboard navigation">
+            <a class="active" href="#dashboardTop"><span>01</span> Overview</a>
+            <a href="#manualEntryPanel"><span>02</span> Employees</a>
+            <a href="#analyticsSection"><span>03</span> Analytics</a>
+            <a href="#departmentSummary"><span>04</span> Departments</a>
+            <a href="#insightsPanel"><span>05</span> Insights</a>
+        </nav>
+        <div class="sidebar-note"><span class="sidebar-note-mark">HR</span><strong>Workforce overview</strong><small>Employee trends at a glance.</small></div>
+    </aside>
+    <div class="dashboard-content">
+    <header class="dashboard-header" id="dashboardTop">
+        <div>
+            <p class="dashboard-kicker">WORKFORCE / ANALYTICS</p>
+            <h1>Next-Gen Analyst</h1>
+            <p class="subtitle">Workforce insights · Attrition · Salary · Department performance</p>
+        </div>
+        <div class="header-actions"><button class="secondary" id="linkCsvBtn">Link CSV file</button><button class="secondary" id="exportCsvBtn">Download CSV</button><button
+                class="primary" onclick="window.print()">Export / Print PDF</button></div>
+    </header>
+    <main class="dashboard-main">
+        <div class="toolbar">
+            <div class="status-stack"><div class="status" id="status"><strong>● Trial mode</strong> — sample records loaded. Upload your own HR CSV
+                to analyze it.</div><div class="file-storage-status" id="fileStorageStatus" role="status">Saved in this browser. Link a CSV to auto-save a spreadsheet copy; reconnect it when you reopen the page.</div></div>
+            <div><label class="upload-label" for="csvFile">↑ Upload HR CSV</label><input id="csvFile" type="file"
+                    accept=".csv,text/csv"></div>
+        </div>
+        <section class="metrics" id="metrics">
+            <div class="card metric" style="--tint:#dcefe7">
+                <div class="label">TOTAL EMPLOYEES</div>
+                <div class="value" id="total">—</div>
+                <div class="foot">Employee records in dataset</div>
+            </div>
+            <div class="card metric" style="--tint:#fbe7e1">
+                <div class="label">ATTRITION RATE</div>
+                <div class="value" id="rate">—</div>
+                <div class="foot" id="attritionFoot">Employees marked as left</div>
+            </div>
+            <div class="card metric" style="--tint:#e0f0e9">
+                <div class="label">AVERAGE MONTHLY INCOME</div>
+                <div class="value" id="income">—</div>
+                <div class="foot">Currency units as supplied in data</div>
+            </div>
+            <div class="card metric" style="--tint:#f4efdf">
+                <div class="label">AVERAGE AGE</div>
+                <div class="value" id="age">—</div>
+                <div class="foot">Years</div>
+            </div>
+        </section>
+        <section class="grid" id="analyticsSection">
+            <div class="panel">
+                <h2>Attrition Breakdown</h2>
+                <div class="desc">Employees who left vs stayed</div>
+                <div class="chart-wrap"><canvas id="attritionChart"></canvas></div>
+            </div>
+            <div class="panel">
+                <h2>Employees by Department</h2>
+                <div class="desc">Workforce distribution</div>
+                <div class="chart-wrap"><canvas id="departmentChart"></canvas></div>
+            </div>
+            <div class="panel">
+                <h2>Attrition by Department</h2>
+                <div class="desc">Number of employees who left in each department</div>
+                <div class="chart-wrap"><canvas id="deptAttritionChart"></canvas></div>
+            </div>
+            <div class="panel">
+                <h2>Overtime & Attrition</h2>
+                <div class="desc">Attrition counts by overtime status</div>
+                <div class="chart-wrap"><canvas id="overtimeChart"></canvas></div>
+            </div>
+            <div class="panel wide" id="departmentSummary">
+                <h2>Department Summary</h2>
+                <div class="desc">Headcount, leavers and average monthly income</div>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Department</th>
+                                <th>Employees</th>
+                                <th>Left</th>
+                                <th>Attrition rate</th>
+                                <th>Avg. monthly income</th>
+                            </tr>
+                        </thead>
+                        <tbody id="deptTable"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel wide" id="insightsPanel">
+                <h2>Quick Insights</h2>
+                <div class="desc">Calculated from the currently loaded dataset</div>
+                <div class="insights" id="insights"></div>
+            </div>
+        </section>
+        <section class="panel wide" id="manualEntryPanel" style="margin-bottom:18px">
+            <h2>Manually Add Employee</h2>
+            <div class="desc">Enter an employee record below and click Add Employee. Dashboard charts and totals update automatically.</div>
+            <form id="employeeForm" class="manual-form">
+                <div class="form-grid">
+                    <label>Age<input name="Age" type="number" min="16" max="100" required placeholder="e.g. 28"></label>
+                    <label>Attrition<select name="Attrition" required><option value="No">No - Still employed</option><option value="Yes">Yes - Left</option></select></label>
+                    <label>Department<input name="Department" required placeholder="e.g. Sales"></label>
+                    <label>Monthly Income<input name="MonthlyIncome" type="number" min="0" step="any" required placeholder="e.g. 35000"></label>
+                    <label>Overtime<select name="OverTime" required><option value="No">No</option><option value="Yes">Yes</option></select></label>
+                    <label>Job Satisfaction (1-4)<input name="JobSatisfaction" type="number" min="1" max="4" step="1" placeholder="e.g. 3"></label>
+                    <label>Years at Company<input name="YearsAtCompany" type="number" min="0" step="1" placeholder="e.g. 2"></label>
+                    <label>Gender<input name="Gender" placeholder="e.g. Female"></label>
+                    <label>Job Role<input name="JobRole" placeholder="e.g. Analyst"></label>
+                </div>
+                <div class="manual-actions">
+                    <button type="submit" class="add-btn">+ Add Employee</button>
+                    <button type="button" id="clearFormBtn" class="clear-btn">Clear form</button>
+                    <span id="formMessage" role="status" aria-live="polite"></span>
+                </div>
+            </form>
+            <div class="desc" style="margin-top:18px">Employee records currently loaded</div>
+            <div class="table-wrap">
+                <table>
+                    <thead><tr><th>#</th><th>Age</th><th>Department</th><th>Monthly Income</th><th>Attrition</th><th>Overtime</th><th>Job Role</th><th>Action</th></tr></thead>
+                    <tbody id="employeeTable"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+    <footer class="dashboard-footer"><span>Next-Gen Analyst · Verify data quality before making decisions.</span><button type="button" id="logoutBtn" class="logout-btn">Log out</button></footer>
+    </div>
+    </div>
+    <dialog id="csvLinkDialog" class="buy-dialog csv-link-dialog">
+        <button type="button" id="closeCsvDialog" class="dialog-close" aria-label="Close">×</button>
+        <p class="eyebrow">FILE-BASED STORAGE</p>
+        <h2>Save your data in a CSV file</h2>
+        <p>Choose an existing CSV to load and auto-save its records, or create a new CSV file. You can open CSV files in Excel.</p>
+        <div class="dialog-actions"><button type="button" id="openExistingCsvBtn" class="button-primary">Choose existing CSV</button><button type="button" id="createCsvBtn" class="button-secondary">Create new CSV</button></div>
+        <p class="file-session-note">Reconnect the file after reopening this page to resume automatic saving.</p>
+        <p class="file-dialog-message" id="fileDialogMessage" role="status" aria-live="polite"></p>
+    </dialog>
+    <a class="whatsapp-support" href="https://wa.me/916006082040?text=Hi%2C%20I%20have%20a%20customer%20query%20about%20HR%20Employee%20Analytics." target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp customer support chat" title="Chat with us on WhatsApp">
+        <img class="whatsapp-logo" src="https://cdn.simpleicons.org/whatsapp/ffffff" alt="" aria-hidden="true">
+    </a>
+    <script src="js/config.js"></script>
+    <script src="js/app.js"></script>
+    
+
+</html>
